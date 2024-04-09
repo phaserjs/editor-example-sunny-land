@@ -1,4 +1,4 @@
-# Sunny Land example game
+# Sunny Land, a Phaser Editor example game
 
 ![game snapshot](.github/sunny-land-snapshot.png)
 
