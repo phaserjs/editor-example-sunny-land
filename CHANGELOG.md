@@ -1,3 +1,7 @@
+## v2.0.3 - Sep 6, 2024
+
+* Uses the right CDN for Phaser.
+
 ## v2.0.2 - Sep 6, 2024
 
 v2.0.1:
