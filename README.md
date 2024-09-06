@@ -8,7 +8,6 @@ This is a good example of how to use the Tilemap support in the Scene Editor, th
 
 ## Configuration
 
-* It includes the latest Phaser v3 runtime (in the `lib/` folder).
 * It is coded in JavaScript.
 * It includes a VS Code project configuration (`jsconfig.json` file) and the type definitions (in the `types/` folder).
 
