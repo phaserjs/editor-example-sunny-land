@@ -1,3 +1,7 @@
+## v2.0.5 - Sep 19, 2024
+
+* Changes Phaser CDN.
+
 ## v2.0.4 - Sep 18, 2024
 
 * Updates to Phaser 3.85.2.
