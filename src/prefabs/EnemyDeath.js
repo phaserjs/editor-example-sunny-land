@@ -3,20 +3,21 @@
 
 /* START OF COMPILED CODE */
 
-class EnemyDeath extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class EnemyDeath extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 130, y ?? 64, texture || "atlas", frame ?? "enemy-death/enemy-death-4");
 
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "enemy-death/enemy-death";
-		startAnimationScript.killOnComplete = true;
+		this.play("enemy-death/enemy-death");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		this.once("animationcomplete", () => {
+
+			this.destroy();
+		});
 		/* END-USER-CTR-CODE */
 	}
 

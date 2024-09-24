@@ -3,20 +3,21 @@
 
 /* START OF COMPILED CODE */
 
-class FeedbackItem extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class FeedbackItem extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 154, y ?? 80, texture || "atlas", frame ?? "item-feedback/item-feedback-1");
 
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "item-feedback/item-feedback";
-		startAnimationScript.killOnComplete = true;
+		this.play("item-feedback/item-feedback");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		this.once("animationcomplete", () => {
+
+			this.destroy();
+		});
 		/* END-USER-CTR-CODE */
 	}
 

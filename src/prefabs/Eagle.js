@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class Eagle extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class Eagle extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 95, y ?? 75, texture || "atlas", frame ?? "eagle/eagle-attack-1");
@@ -12,12 +15,7 @@ class Eagle extends Phaser.GameObjects.Sprite {
 		this.body.allowGravity = false;
 		this.body.setOffset(3, 9);
 		this.body.setSize(32, 30, false);
-
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "eagle/eagle-attack";
+		this.play("eagle/eagle-attack");
 
 		/* START-USER-CTR-CODE */
 		this.scene.tweens.add({

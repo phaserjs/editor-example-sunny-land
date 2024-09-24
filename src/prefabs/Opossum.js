@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class Opossum extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class Opossum extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 157, y ?? 73, texture || "atlas", frame ?? "opossum/opossum-1");
@@ -11,12 +14,7 @@ class Opossum extends Phaser.GameObjects.Sprite {
 		scene.physics.add.existing(this, false);
 		this.body.setOffset(2, 6);
 		this.body.setSize(31, 20, false);
-
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "opossum/opossum";
+		this.play("opossum/opossum");
 
 		/* START-USER-CTR-CODE */
 

@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class Preloader extends Phaser.Scene {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class Preloader extends Phaser.Scene {
 
 	constructor() {
 		super("Preloader");
@@ -25,22 +28,13 @@ class Preloader extends Phaser.Scene {
 		// loading
 		const loading = this.add.image(144, 96, "loading");
 
-		// startTitleAction
-		const startTitleAction = new StartSceneActionScript(this);
-
-		// startTitleAction (prefab fields)
-		startTitleAction.sceneKey = "TitleScreen";
-
 		this.loading = loading;
-		this.startTitleAction = startTitleAction;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.GameObjects.Image} */
 	loading;
-	/** @type {StartSceneActionScript} */
-	startTitleAction;
 
 	/* START-USER-CODE */
 
@@ -60,7 +54,7 @@ class Preloader extends Phaser.Scene {
 
 	create() {
 
-		this.startTitleAction.execute();
+		this.scene.start("TitleScreen");
 	}
 
 	/* END-USER-CODE */

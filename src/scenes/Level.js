@@ -3,7 +3,21 @@
 
 /* START OF COMPILED CODE */
 
-class Level extends Phaser.Scene {
+import Cherry from "../prefabs/Cherry.js";
+import Gem from "../prefabs/Gem.js";
+import Frog from "../prefabs/Frog.js";
+import Eagle from "../prefabs/Eagle.js";
+import CharacterMoveScript from "../script-nodes/CharacterMoveScript.js";
+import Opossum from "../prefabs/Opossum.js";
+import Player from "../prefabs/Player.js";
+import ControllerButtonScript from "../script-nodes/ControllerButtonScript.js";
+import FixedToCameraScript from "../script-nodes/FixedToCameraScript.js";
+/* START-USER-IMPORTS */
+import EnemyDeath from "../prefabs/EnemyDeath.js";
+import FeedbackItem from "../prefabs/FeedbackItem.js";
+/* END-USER-IMPORTS */
+
+export default class Level extends Phaser.Scene {
 
 	constructor() {
 		super("Level");

@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class Frog extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class Frog extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 91, y ?? 51, texture || "atlas", frame ?? "frog/idle/frog-idle-1");
@@ -11,12 +14,7 @@ class Frog extends Phaser.GameObjects.Sprite {
 		scene.physics.add.existing(this, false);
 		this.body.setOffset(6, 8);
 		this.body.setSize(21, 19, false);
-
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "frog/idle/frog-idle";
+		this.play("frog/idle/frog-idle");
 
 		/* START-USER-CTR-CODE */
 

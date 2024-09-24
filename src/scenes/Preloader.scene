@@ -2,6 +2,9 @@
     "id": "80abb39c-5473-44cf-bfb3-11f159db7bbd",
     "sceneType": "SCENE",
     "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
         "preloadMethodName": "editorPreload",
         "preloadPackFiles": [
             "SunnyLand-Demo/assets/asset-pack.json"
@@ -17,33 +20,18 @@
             "id": "c2d6e7e9-85ca-49f3-b46b-435524dc83d8",
             "label": "loading",
             "scope": "CLASS",
-            "components": [],
             "texture": {
                 "key": "loading"
             },
             "x": 144,
-            "y": 96,
-            "list": []
-        },
-        {
-            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-            "id": "a71f9aa7-f243-4984-94f3-d9e1d41c7e52",
-            "unlock": [
-                "sceneKey"
-            ],
-            "label": "startTitleAction",
-            "scope": "CLASS",
-            "sceneKey": "TitleScreen",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
+            "y": 96
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

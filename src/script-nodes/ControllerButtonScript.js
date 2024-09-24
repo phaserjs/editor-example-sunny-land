@@ -3,7 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-class ControllerButtonScript extends ScriptNode {
+import ScriptNode from "../../phaserjs_editor_scripts_base/ScriptNode.js";
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class ControllerButtonScript extends ScriptNode {
 
 	constructor(parent) {
 		super(parent);

@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class Player extends Phaser.GameObjects.Sprite {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class Player extends Phaser.GameObjects.Sprite {
 
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 78, y ?? 37, texture || "atlas", frame ?? "player/idle/player-idle-2");
@@ -11,12 +14,7 @@ class Player extends Phaser.GameObjects.Sprite {
 		scene.physics.add.existing(this, false);
 		this.body.setOffset(12, 16);
 		this.body.setSize(8, 16, false);
-
-		// startAnimationScript
-		const startAnimationScript = new StartAnimationScript(this);
-
-		// startAnimationScript (prefab fields)
-		startAnimationScript.animationKey = "player/idle/player-idle";
+		this.play("player/idle/player-idle");
 
 		/* START-USER-CTR-CODE */
 

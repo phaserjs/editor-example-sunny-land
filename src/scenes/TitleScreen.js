@@ -3,7 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-class TitleScreen extends Phaser.Scene {
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class TitleScreen extends Phaser.Scene {
 
 	constructor() {
 		super("TitleScreen");
@@ -38,18 +41,11 @@ class TitleScreen extends Phaser.Scene {
 		instructions.setOrigin(0.5, 0);
 		instructions.visible = false;
 
-		// startLevelAction
-		const startLevelAction = new StartSceneActionScript(this);
-
-		// startLevelAction (prefab fields)
-		startLevelAction.sceneKey = "Level";
-
 		this.background = background;
 		this.middle = middle;
 		this.title_screen = title_screen;
 		this.press_enter_text = press_enter_text;
 		this.instructions = instructions;
-		this.startLevelAction = startLevelAction;
 
 		this.events.emit("scene-awake");
 	}
@@ -64,8 +60,6 @@ class TitleScreen extends Phaser.Scene {
 	press_enter_text;
 	/** @type {Phaser.GameObjects.Image} */
 	instructions;
-	/** @type {StartSceneActionScript} */
-	startLevelAction;
 
 	/* START-USER-CODE */
 
@@ -88,7 +82,7 @@ class TitleScreen extends Phaser.Scene {
 
 		} else {
 
-			this.startLevelAction.execute();
+			this.scene.start("Level");
 		}
 	}
 

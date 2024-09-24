@@ -3,7 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-class FixedToCameraScript extends ScriptNode {
+import ScriptNode from "../../phaserjs_editor_scripts_base/ScriptNode.js";
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
+export default class FixedToCameraScript extends ScriptNode {
 
 	constructor(parent) {
 		super(parent);

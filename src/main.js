@@ -1,3 +1,6 @@
+import Level from "./scenes/Level.js";
+import Preloader from "./scenes/Preloader.js";
+import TitleScreen from "./scenes/TitleScreen.js";
 
 window.addEventListener("load", function () {
 
