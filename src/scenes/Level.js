@@ -7,11 +7,11 @@ import Cherry from "../prefabs/Cherry.js";
 import Gem from "../prefabs/Gem.js";
 import Frog from "../prefabs/Frog.js";
 import Eagle from "../prefabs/Eagle.js";
-import CharacterMoveScript from "../script-nodes/CharacterMoveScript.js";
+import CharacterMoveComp from "../components/CharacterMoveComp.js";
 import Opossum from "../prefabs/Opossum.js";
 import Player from "../prefabs/Player.js";
-import ControllerButtonScript from "../script-nodes/ControllerButtonScript.js";
-import FixedToCameraScript from "../script-nodes/FixedToCameraScript.js";
+import FixedToCameraComp from "../components/FixedToCameraComp.js";
+import ControllerButtonComp from "../components/ControllerButtonComp.js";
 /* START-USER-IMPORTS */
 import EnemyDeath from "../prefabs/EnemyDeath.js";
 import FeedbackItem from "../prefabs/FeedbackItem.js";
@@ -176,15 +176,9 @@ export default class Level extends Phaser.Scene {
 		const eagle = new Eagle(this, 528, 96);
 		this.add.existing(eagle);
 
-		// characterMoveScript_1
-		const characterMoveScript_1 = new CharacterMoveScript(eagle);
-
 		// eagle_2
 		const eagle_2 = new Eagle(this, 96, 96);
 		this.add.existing(eagle_2);
-
-		// characterMoveScript
-		const characterMoveScript = new CharacterMoveScript(eagle_2);
 
 		// opossum
 		const opossum = new Opossum(this, 678, 147);
@@ -206,35 +200,17 @@ export default class Level extends Phaser.Scene {
 		left_button.scaleY = 0.39899614692006335;
 		left_button.tintTopLeft = 16627125;
 
-		// controllerLeft
-		const controllerLeft = new ControllerButtonScript(left_button);
-
-		// fixedToCameraScript_2
-		new FixedToCameraScript(left_button);
-
 		// right_button
 		const right_button = this.add.image(70, 170, "right-button");
 		right_button.scaleX = 0.39899614692006335;
 		right_button.scaleY = 0.39899614692006335;
 		right_button.tintTopLeft = 16627125;
 
-		// controllerRight
-		const controllerRight = new ControllerButtonScript(right_button);
-
-		// fixedToCameraScript_1
-		new FixedToCameraScript(right_button);
-
 		// jump_button
 		const jump_button = this.add.image(262, 170, "jump-button");
 		jump_button.scaleX = 0.39899614692006335;
 		jump_button.scaleY = 0.39899614692006335;
 		jump_button.tintTopLeft = 16627125;
-
-		// controllerJump
-		const controllerJump = new ControllerButtonScript(jump_button);
-
-		// fixedToCameraScript
-		new FixedToCameraScript(jump_button);
 
 		// lists
 		const items = [cherry, cherry_1, cherry_2, cherry_3, cherry_4, cherry_5, gem, gem_1, gem_2, gem_3, gem_1_1, gem_2_1];
@@ -252,23 +228,32 @@ export default class Level extends Phaser.Scene {
 		// overlapPlayerVsEnemies
 		const overlapPlayerVsEnemies = this.physics.add.overlap(player, enemies, undefined, this.checkAgainstEnemies, this);
 
-		// characterMoveScript_1 (prefab fields)
-		characterMoveScript_1.deltaX = 0;
-		characterMoveScript_1.deltaY = 50;
-		characterMoveScript_1.duration = 1000;
+		// eagle (components)
+		const eagleCharacterMoveComp = new CharacterMoveComp(eagle);
+		eagleCharacterMoveComp.deltaY = 50;
+		eagleCharacterMoveComp.duration = 1000;
 
-		// characterMoveScript (prefab fields)
-		characterMoveScript.deltaX = 0;
-		characterMoveScript.deltaY = 50;
-		characterMoveScript.duration = 1000;
+		// eagle_2 (components)
+		const eagle_2CharacterMoveComp = new CharacterMoveComp(eagle_2);
+		eagle_2CharacterMoveComp.deltaY = 50;
+		eagle_2CharacterMoveComp.duration = 1000;
+
+		// left_button (components)
+		new FixedToCameraComp(left_button);
+		new ControllerButtonComp(left_button);
+
+		// right_button (components)
+		new FixedToCameraComp(right_button);
+		new ControllerButtonComp(right_button);
+
+		// jump_button (components)
+		new FixedToCameraComp(jump_button);
+		new ControllerButtonComp(jump_button);
 
 		this.layer = layer;
 		this.player = player;
-		this.controllerLeft = controllerLeft;
 		this.left_button = left_button;
-		this.controllerRight = controllerRight;
 		this.right_button = right_button;
-		this.controllerJump = controllerJump;
 		this.jump_button = jump_button;
 		this.map = map;
 		this.spaceKey = spaceKey;
@@ -286,16 +271,10 @@ export default class Level extends Phaser.Scene {
 	layer;
 	/** @type {Player} */
 	player;
-	/** @type {ControllerButtonScript} */
-	controllerLeft;
 	/** @type {Phaser.GameObjects.Image} */
 	left_button;
-	/** @type {ControllerButtonScript} */
-	controllerRight;
 	/** @type {Phaser.GameObjects.Image} */
 	right_button;
-	/** @type {ControllerButtonScript} */
-	controllerJump;
 	/** @type {Phaser.GameObjects.Image} */
 	jump_button;
 	/** @type {Phaser.Tilemaps.Tilemap} */
@@ -362,9 +341,13 @@ export default class Level extends Phaser.Scene {
 
 		const body = this.player.getBody();
 
-		const jumpDown = this.upKey.isDown || this.spaceKey.isDown || this.controllerJump.isDown;
-		const leftDown = this.leftKey.isDown || this.controllerLeft.isDown;
-		const rightDown = this.rightKey.isDown || this.controllerRight.isDown;
+		const controllerLeft = ControllerButtonComp.getComponent(this.left_button);
+		const controllerRight = ControllerButtonComp.getComponent(this.right_button);
+		const controllerJump = ControllerButtonComp.getComponent(this.jump_button);
+
+		const jumpDown = this.upKey.isDown || this.spaceKey.isDown || controllerJump.isDown;
+		const leftDown = this.leftKey.isDown || controllerLeft.isDown;
+		const rightDown = this.rightKey.isDown || controllerRight.isDown;
 
 		if (jumpDown && body.onFloor()) {
 

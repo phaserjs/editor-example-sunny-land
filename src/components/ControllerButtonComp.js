@@ -3,14 +3,17 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../../phaserjs_editor_scripts_base/ScriptNode.js";
+import UserComponent from "../../phaserjs_editor_scripts_base/UserComponent.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class ControllerButtonScript extends ScriptNode {
+export default class ControllerButtonComp extends UserComponent {
 
-	constructor(parent) {
-		super(parent);
+	constructor(gameObject) {
+		super(gameObject);
+
+		this.gameObject = gameObject;
+		gameObject["__ControllerButtonComp"] = this;
 
 		/* START-USER-CTR-CODE */
 
@@ -18,6 +21,14 @@ export default class ControllerButtonScript extends ScriptNode {
 
 		/* END-USER-CTR-CODE */
 	}
+
+	/** @returns {ControllerButtonComp} */
+	static getComponent(gameObject) {
+		return gameObject["__ControllerButtonComp"];
+	}
+
+	/** @type {Phaser.GameObjects.Image} */
+	gameObject;
 
 	/* START-USER-CODE */
 

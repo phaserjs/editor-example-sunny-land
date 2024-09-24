@@ -3,20 +3,30 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../../phaserjs_editor_scripts_base/ScriptNode.js";
+import UserComponent from "../../phaserjs_editor_scripts_base/UserComponent.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class CharacterMoveScript extends ScriptNode {
+export default class CharacterMoveComp extends UserComponent {
 
-	constructor(parent) {
-		super(parent);
+	constructor(gameObject) {
+		super(gameObject);
+
+		this.gameObject = gameObject;
+		gameObject["__CharacterMoveComp"] = this;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
+	/** @returns {CharacterMoveComp} */
+	static getComponent(gameObject) {
+		return gameObject["__CharacterMoveComp"];
+	}
+
+	/** @type {Phaser.GameObjects.Image} */
+	gameObject;
 	/** @type {number} */
 	deltaX = 0;
 	/** @type {number} */

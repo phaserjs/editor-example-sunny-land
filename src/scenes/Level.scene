@@ -381,23 +381,13 @@
                 "y"
             ],
             "label": "eagle",
+            "components": [
+                "CharacterMoveComp"
+            ],
+            "CharacterMoveComp.deltaY": 50,
+            "CharacterMoveComp.duration": 1000,
             "x": 528,
-            "y": 96,
-            "list": [
-                {
-                    "prefabId": "d27067c0-70b1-478b-9b7c-d2d2f08defa1",
-                    "id": "6bee0870-36a8-4261-acc9-2ae88b6d934e",
-                    "unlock": [
-                        "deltaX",
-                        "deltaY",
-                        "duration"
-                    ],
-                    "label": "characterMoveScript_1",
-                    "deltaX": 0,
-                    "deltaY": 50,
-                    "duration": 1000
-                }
-            ]
+            "y": 96
         },
         {
             "prefabId": "8a59bab4-8eb8-4fde-b4c7-2b77253af9f7",
@@ -407,23 +397,13 @@
                 "y"
             ],
             "label": "eagle_2",
+            "components": [
+                "CharacterMoveComp"
+            ],
+            "CharacterMoveComp.deltaY": 50,
+            "CharacterMoveComp.duration": 1000,
             "x": 96,
-            "y": 96,
-            "list": [
-                {
-                    "prefabId": "d27067c0-70b1-478b-9b7c-d2d2f08defa1",
-                    "id": "022fa732-cdd6-490c-a3c7-8d2ea1246ba2",
-                    "unlock": [
-                        "deltaX",
-                        "deltaY",
-                        "duration"
-                    ],
-                    "label": "characterMoveScript",
-                    "deltaX": 0,
-                    "deltaY": 50,
-                    "duration": 1000
-                }
-            ]
+            "y": 96
         },
         {
             "prefabId": "dc8d8561-bce8-49fe-8272-6db97851c196",
@@ -469,7 +449,9 @@
             "label": "left_button",
             "scope": "CLASS",
             "components": [
-                "ScrollFactorX"
+                "ScrollFactorX",
+                "FixedToCameraComp",
+                "ControllerButtonComp"
             ],
             "texture": {
                 "key": "left-button"
@@ -478,20 +460,7 @@
             "y": 170,
             "scaleX": 0.39899614692006335,
             "scaleY": 0.39899614692006335,
-            "tintTopLeft": "#fdb5b5",
-            "list": [
-                {
-                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
-                    "id": "4933f3da-7ed9-4edb-a3a7-b6b72a8c8ba9",
-                    "label": "controllerLeft",
-                    "scope": "CLASS"
-                },
-                {
-                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
-                    "id": "5ec03c78-43d5-4a5a-ad01-0c1e4e5e7e1b",
-                    "label": "fixedToCameraScript_2"
-                }
-            ]
+            "tintTopLeft": "#fdb5b5"
         },
         {
             "type": "Image",
@@ -499,7 +468,9 @@
             "label": "right_button",
             "scope": "CLASS",
             "components": [
-                "ScrollFactorX"
+                "ScrollFactorX",
+                "FixedToCameraComp",
+                "ControllerButtonComp"
             ],
             "texture": {
                 "key": "right-button"
@@ -508,26 +479,17 @@
             "y": 170,
             "scaleX": 0.39899614692006335,
             "scaleY": 0.39899614692006335,
-            "tintTopLeft": "#fdb5b5",
-            "list": [
-                {
-                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
-                    "id": "6b36b207-6587-4505-a323-7e1075f17d85",
-                    "label": "controllerRight",
-                    "scope": "CLASS"
-                },
-                {
-                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
-                    "id": "3094bae4-2ca7-409f-933f-0abaa8dc915e",
-                    "label": "fixedToCameraScript_1"
-                }
-            ]
+            "tintTopLeft": "#fdb5b5"
         },
         {
             "type": "Image",
             "id": "87131438-7363-4eb8-9b9e-391f7cf70d4f",
             "label": "jump_button",
             "scope": "CLASS",
+            "components": [
+                "FixedToCameraComp",
+                "ControllerButtonComp"
+            ],
             "texture": {
                 "key": "jump-button"
             },
@@ -535,20 +497,7 @@
             "y": 170,
             "scaleX": 0.39899614692006335,
             "scaleY": 0.39899614692006335,
-            "tintTopLeft": "#fdb5b5",
-            "list": [
-                {
-                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
-                    "id": "08a08d26-2cf6-4018-b1fe-845dc62a4ec7",
-                    "label": "controllerJump",
-                    "scope": "CLASS"
-                },
-                {
-                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
-                    "id": "726b9adc-3485-4944-a302-47b3dbecb0dc",
-                    "label": "fixedToCameraScript"
-                }
-            ]
+            "tintTopLeft": "#fdb5b5"
         }
     ],
     "plainObjects": [
