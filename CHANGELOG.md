@@ -2,6 +2,7 @@
 
 * Use ES modules.
 * Updates to the new script libraries.
+* Replaces custom scripts to user components.
 
 ## v2.0.5 - Sep 19, 2024
 
