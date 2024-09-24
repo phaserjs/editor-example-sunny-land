@@ -1,3 +1,8 @@
+## v3.0.6 - Sep 24, 20204
+
+* Use ES modules.
+* Updates to the new script libraries.
+
 ## v2.0.5 - Sep 19, 2024
 
 * Changes Phaser CDN.
