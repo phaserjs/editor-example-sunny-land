@@ -1,4 +1,4 @@
-## v3.0.6 - Sep 24, 20204
+## v2.0.6 - Sep 24, 20204
 
 * Use ES modules.
 * Updates to the new script libraries.
