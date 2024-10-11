@@ -307,32 +307,13 @@ export default class Level extends Phaser.Scene {
 
 	initCamera() {
 
-		const cam = this.cameras.main;
-		cam.setBounds(0, 0, this.layer.width, this.layer.height);
+		const camera = this.cameras.main;
+		camera.setBounds(0, 0, this.layer.width, this.layer.height);
+		camera.startFollow(this.player, true);
 	}
 
 
 	update() {
-
-		this.movePlayer();
-
-		// fix player position
-
-		this.player.x = Math.floor(this.player.x);
-
-		// fix camera position
-
-		const cam = this.cameras.main;
-
-		// camera X follows the player
-		cam.scrollX = Math.floor(this.player.x - cam.width / 2);
-
-		// cameras Y moves to a sector of the world
-		const row = Math.floor(this.player.y / cam.height);
-		cam.scrollY = row * cam.height;
-	}
-
-	movePlayer() {
 
 		if (this.player.hurtFlag) {
 

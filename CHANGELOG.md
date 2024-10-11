@@ -1,6 +1,7 @@
 ## v2.0.7 - Oct 11, 2024
 
 * Updates to Phaser 3.86.
+* Fixes roundPixel parameter in camera.startFollow() method.
 
 ## v2.0.6 - Sep 24, 2024
 

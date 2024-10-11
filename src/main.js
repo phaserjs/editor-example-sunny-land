@@ -24,6 +24,7 @@ window.addEventListener("load", function () {
 		},
 		render: {
 			pixelArt: true,
+			roundPixels: true
 		},
 		input: {
 			activePointers: 3
