@@ -1,4 +1,8 @@
-## v2.0.6 - Sep 24, 20204
+## v2.0.7 - Oct 11, 2024
+
+* Updates to Phaser 3.86.
+
+## v2.0.6 - Sep 24, 2024
 
 * Use ES modules.
 * Updates to the new script libraries.
