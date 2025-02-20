@@ -1,3 +1,7 @@
+## v2.0.8 - Deb 20, 2025
+
+* Updates to Phaser 3.88.1.
+
 ## v2.0.7 - Oct 11, 2024
 
 * Updates to Phaser 3.86.
